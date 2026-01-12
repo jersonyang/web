@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jerson Yang | Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // "NYC Tech" Palette
+                        slate: {
+                            850: '#1e293b', // Professional Dark Blue-Grey
+                            900: '#0f172a',
+                        },
+                        // "Varsity Blue" - Trustworthy, Collegiate, Energetic
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            600: '#2563eb', // Vibrant Royal Blue
+                            700: '#1d4ed8', 
+                            800: '#1e40af', 
+                            900: '#1e3a8a', 
+                        },
+                        // "Energy Orange" - Knicks/Creativity Accent
+                        accent: {
+                            500: '#f97316', 
+                            600: '#ea580c', 
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom Scrollbar - Clean & Modern */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f8fafc;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #94a3b8; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+        }
+
+        .hero-bg {
+            /* Manhattan Bridge View */
+            background-image: url('https://images.unsplash.com/photo-1520960858461-ac0ceb912db3?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-800 antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-md shadow-sm z-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <div class="w-10 h-10 bg-primary-700 rounded-lg flex items-center justify-center text-white font-display font-black text-xl shadow-lg shadow-primary-500/30">JY</div>
+                    <span class="font-display font-bold text-xl text-slate-900 tracking-tight">JERSON <span class="text-primary-600">YANG</span></span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="text-slate-600 hover:text-primary-700 px-3 py-2 text-sm font-bold uppercase tracking-wide transition">Home</a>
+                        <a href="#about" class="text-slate-600 hover:text-primary-700 px-3 py-2 text-sm font-bold uppercase tracking-wide transition">About</a>
+                        <a href="#experience" class="text-slate-600 hover:text-primary-700 px-3 py-2 text-sm font-bold uppercase tracking-wide transition">Experience</a>
+                        <a href="#stevens" class="text-slate-600 hover:text-primary-700 px-3 py-2 text-sm font-bold uppercase tracking-wide transition">Stevens</a>
+                        <a href="#media" class="text-slate-600 hover:text-primary-700 px-3 py-2 text-sm font-bold uppercase tracking-wide transition">Media</a>
+                        <a href="#life" class="text-slate-600 hover:text-primary-700 px-3 py-2 text-sm font-bold uppercase tracking-wide transition">Life</a>
+                        <a href="#contact" class="bg-primary-700 text-white hover:bg-primary-800 px-5 py-2.5 rounded-lg text-sm font-bold uppercase tracking-wide transition shadow-md shadow-primary-500/20">Contact</a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-primary-700 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 text-base font-bold text-slate-600 hover:bg-slate-50 hover:text-primary-700">Home</a>
+                <a href="#about" class="block px-3 py-2 text-base font-bold text-slate-600 hover:bg-slate-50 hover:text-primary-700">About</a>
+                <a href="#experience" class="block px-3 py-2 text-base font-bold text-slate-600 hover:bg-slate-50 hover:text-primary-700">Experience</a>
+                <a href="#stevens" class="block px-3 py-2 text-base font-bold text-slate-600 hover:bg-slate-50 hover:text-primary-700">Stevens</a>
+                <a href="#media" class="block px-3 py-2 text-base font-bold text-slate-600 hover:bg-slate-50 hover:text-primary-700">Media</a>
+                <a href="#life" class="block px-3 py-2 text-base font-bold text-slate-600 hover:bg-slate-50 hover:text-primary-700">Life</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-bold text-primary-700 hover:bg-slate-50">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center hero-bg">
+        <!-- Overlay: Clean gradient, not too dark -->
+        <div class="hero-overlay absolute inset-0 bg-gradient-to-r from-slate-900/80 via-primary-900/70 to-transparent"></div>
+
+        <div class="container mx-auto px-6 z-10 grid md:grid-cols-2 gap-12 items-center py-32 md:py-48">
+            <div class="text-white space-y-8 animate-fade-in">
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/10 backdrop-blur-md border border-white/20 text-xs font-bold uppercase tracking-widest text-primary-50 rounded-full">
+                    <i class="fas fa-map-marker-alt text-accent-500"></i> Based in New York City
+                </div>
+                
+                <h1 class="text-4xl md:text-6xl font-display font-black leading-tight tracking-tight drop-shadow-xl">
+                    BUILDING DIGITAL <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-200 to-white">INFRASTRUCTURE.</span>
+                </h1>
+                
+                <p class="text-lg text-primary-50 max-w-lg font-medium leading-relaxed border-l-4 border-accent-500 pl-6 drop-shadow-md">
+                    I am <strong>Jerson Yang</strong>. Computer Engineering Student, IT Manager, and Digital Creator. I build technical infrastructure and lead creative communities.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a href="#experience" class="px-8 py-4 bg-white text-slate-900 rounded-lg hover:bg-slate-100 transition shadow-xl flex items-center justify-center gap-3 font-bold uppercase tracking-wide transform hover:-translate-y-1">
+                        View Resume <i class="fas fa-arrow-right text-primary-600"></i>
+                    </a>
+                    <a href="#media" class="px-8 py-4 bg-primary-600/30 backdrop-blur-md border border-white/40 text-white rounded-lg hover:bg-white/10 transition flex items-center justify-center gap-3 font-bold uppercase tracking-wide">
+                        Media Portfolio
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Tech/Stats Card -->
+            <div class="hidden md:block relative">
+                <div class="glass-card p-8 rounded-2xl shadow-2xl max-w-md ml-auto transform rotate-2 hover:rotate-0 transition duration-500 border-t-4 border-primary-600">
+                    <h3 class="text-slate-800 font-display font-bold text-xl mb-6 border-b border-slate-200 pb-4">Current Status</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 bg-primary-50 text-primary-700 rounded-xl"><i class="fas fa-university text-xl"></i></div>
+                            <div>
+                                <h4 class="text-slate-900 font-bold">Stevens Institute of Tech</h4>
+                                <p class="text-slate-500 text-sm">B.E. Computer Engineering '27</p>
+                                <p class="text-primary-700 text-xs font-bold mt-1 bg-primary-50 inline-block px-2 py-0.5 rounded">GPA: 3.659</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 bg-accent-50 text-accent-600 rounded-xl"><i class="fas fa-briefcase text-xl"></i></div>
+                            <div>
+                                <h4 class="text-slate-900 font-bold">IT Manager</h4>
+                                <p class="text-slate-500 text-sm">NYC Dept of Education</p>
+                                <p class="text-slate-400 text-xs mt-1">Supporting 550+ Users</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 bg-slate-100 text-slate-700 rounded-xl"><i class="fas fa-code text-xl"></i></div>
+                            <div>
+                                <h4 class="text-slate-900 font-bold">Core Stack</h4>
+                                <div class="flex flex-wrap gap-2 mt-2">
+                                    <span class="px-2 py-1 bg-slate-800 text-xs text-white rounded font-mono">Python</span>
+                                    <span class="px-2 py-1 bg-slate-800 text-xs text-white rounded font-mono">C++</span>
+                                    <span class="px-2 py-1 bg-slate-800 text-xs text-white rounded font-mono">Google Script</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-white relative">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-display font-black mb-6 text-slate-900">THE HYBRID PROFESSIONAL</h2>
+                    <div class="w-24 h-2 bg-gradient-to-r from-primary-600 to-accent-500 mb-8 rounded-full"></div>
+                    <p class="text-slate-600 text-lg leading-relaxed mb-6">
+                        I don't just fix computers; I manage ecosystems. With over 4 years of IT Helpdesk experience, I've managed $500k+ in inventory and kept schools running smoothly.
+                    </p>
+                    <p class="text-slate-600 text-lg leading-relaxed mb-8">
+                        But I'm also a creator. Leading a team of 10 to grow a YouTube channel to 45,000+ views taught me that technical skills mean nothing if you can't communicate the story behind them.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="p-5 bg-slate-50 border-l-4 border-primary-600 rounded-r-lg shadow-sm">
+                            <h4 class="font-bold text-slate-900 mb-1">Technical</h4>
+                            <p class="text-xs text-slate-500 font-medium uppercase tracking-wide">Hardware Repair, Network Config, Python, C++</p>
+                        </div>
+                        <div class="p-5 bg-slate-50 border-l-4 border-accent-500 rounded-r-lg shadow-sm">
+                            <h4 class="font-bold text-slate-900 mb-1">Operational</h4>
+                            <p class="text-xs text-slate-500 font-medium uppercase tracking-wide">Vendor Management, Asset Tracking, Team Leadership</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <!-- Photo styling -->
+                    <div class="absolute -inset-4 bg-primary-100 rounded-2xl transform rotate-2"></div>
+                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80" alt="Coding Setup" class="relative rounded-xl shadow-xl transition duration-700 hover:scale-[1.01]">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience / Resume Section -->
+    <section id="experience" class="py-24 bg-slate-50">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-display font-black text-slate-900">PROFESSIONAL TRACK</h2>
+                <p class="text-slate-500 mt-4 font-medium uppercase tracking-wide text-sm">Experience Timeline</p>
+            </div>
+            
+            <div class="space-y-8">
+                <!-- Job 1 -->
+                <div class="bg-white p-8 rounded-xl border border-slate-100 shadow-sm hover:shadow-lg transition border-l-4 border-l-primary-700 group">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-900 group-hover:text-primary-700 transition">IT Manager</h3>
+                            <p class="text-slate-500 font-medium text-sm mt-1">NYC Department of Education | Baruch College Campus HS</p>
+                        </div>
+                        <span class="mt-2 md:mt-0 px-4 py-1 bg-primary-50 text-primary-700 text-xs font-bold uppercase tracking-wider rounded-full">Aug 2021 - Present</span>
+                    </div>
+                    <ul class="space-y-3 text-slate-600 list-disc list-inside leading-relaxed">
+                        <li>Managed full lifecycle of <strong>$500,000+ technology inventory</strong> (1,000+ devices).</li>
+                        <li>Delivered Tier 1 & 2 support to <strong>550+ users</strong>; led training for 75+ volunteers.</li>
+                        <li>Resolved 600+ tickets, diagnosing hardware failures and network issues.</li>
+                        <li>Developed automated Google Apps Script tool to reduce equipment wait times by 20%.</li>
+                    </ul>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="bg-white p-8 rounded-xl border border-slate-100 shadow-sm hover:shadow-lg transition border-l-4 border-l-slate-400 group">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-900 group-hover:text-slate-700 transition">Operations Intern</h3>
+                            <p class="text-slate-500 font-medium text-sm mt-1">Hudson Dorms | Hoboken, NJ</p>
+                        </div>
+                        <span class="mt-2 md:mt-0 px-4 py-1 bg-slate-100 text-slate-600 text-xs font-bold uppercase tracking-wider rounded-full">Summer 2025</span>
+                    </div>
+                    <ul class="space-y-3 text-slate-600 list-disc list-inside leading-relaxed">
+                        <li>Executed logistics & maintenance ensuring 100% on-time completion.</li>
+                        <li>Managed end-to-end data lifecycle for 600+ digital leases with 100% integrity.</li>
+                    </ul>
+                </div>
+
+                <!-- Job 3: Intake Intern -->
+                <div class="bg-white p-8 rounded-xl border border-slate-100 shadow-sm hover:shadow-lg transition border-l-4 border-l-slate-300 group">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-900 group-hover:text-slate-700 transition">Intake Summer Intern</h3>
+                            <p class="text-slate-500 font-medium text-sm mt-1">NYC Department for the Aging</p>
+                        </div>
+                        <span class="mt-2 md:mt-0 px-4 py-1 bg-slate-100 text-slate-600 text-xs font-bold uppercase tracking-wider rounded-full">Summer 2023</span>
+                    </div>
+                    <ul class="space-y-3 text-slate-600 list-disc list-inside leading-relaxed">
+                        <li>Performed data entry and analysis for 2019 Records Retention Manifest Files.</li>
+                        <li>Created onboarding packages for the 2023/24 fiscal year.</li>
+                        <li>Managed applicant records within the department's internal system.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Awards Mini Section -->
+            <div class="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white border border-slate-200 p-6 text-center rounded-xl shadow-sm hover:border-primary-500 transition hover:-translate-y-1 duration-300">
+                    <i class="fas fa-award text-primary-600 text-3xl mb-3"></i>
+                    <h4 class="font-bold text-slate-900">Jack Kent Cooke</h4>
+                    <p class="text-xs text-slate-500 uppercase font-bold tracking-wide">Scholar Award</p>
+                </div>
+                <div class="bg-white border border-slate-200 p-6 text-center rounded-xl shadow-sm hover:border-primary-500 transition hover:-translate-y-1 duration-300">
+                    <i class="fas fa-medal text-primary-600 text-3xl mb-3"></i>
+                    <h4 class="font-bold text-slate-900">Dean's List</h4>
+                    <p class="text-xs text-slate-500 uppercase font-bold tracking-wide">Multiple Semesters</p>
+                </div>
+                <div class="bg-white border border-slate-200 p-6 text-center rounded-xl shadow-sm hover:border-primary-500 transition hover:-translate-y-1 duration-300">
+                    <i class="fas fa-star text-primary-600 text-3xl mb-3"></i>
+                    <h4 class="font-bold text-slate-900">Edwin A. Stevens</h4>
+                    <p class="text-xs text-slate-500 uppercase font-bold tracking-wide">Scholarship</p>
+                </div>
+                <div class="bg-white border border-slate-200 p-6 text-center rounded-xl shadow-sm hover:border-primary-500 transition hover:-translate-y-1 duration-300">
+                    <i class="fas fa-certificate text-primary-600 text-3xl mb-3"></i>
+                    <h4 class="font-bold text-slate-900">Manhattan Leadership</h4>
+                    <p class="text-xs text-slate-500 uppercase font-bold tracking-wide">Recognition Award</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Stevens Leadership Section -->
+    <section id="stevens" class="py-24 bg-white border-b border-gray-200">
+         <div class="container mx-auto px-6 max-w-6xl">
+            <div class="mb-12 border-b border-gray-200 pb-6 text-center">
+                <h2 class="text-3xl font-display font-black text-slate-900">CAMPUS LEADERSHIP</h2>
+                <p class="text-slate-500 mt-2 font-medium">Stevens Institute of Technology Involvement</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Activity 1: CIO Advisory -->
+                <div class="bg-slate-50 p-8 border-t-4 border-primary-700 shadow-sm hover:shadow-md transition rounded-xl">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">2024 - Present</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-1">CIO ADVISORY COMMITTEE</h3>
+                    <p class="text-primary-700 text-xs font-bold uppercase tracking-wide mb-4">Vice President of Education</p>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Co-organized Stevens' first <strong>IT Quackathon</strong>. Selected as student representative on the hiring committee for the university CIO.
+                    </p>
+                </div>
+
+                <!-- Activity 2: ECE Student Council -->
+                <div class="bg-slate-50 p-8 border-t-4 border-accent-500 shadow-sm hover:shadow-md transition rounded-xl">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">2023 - Present</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-1">ECE STUDENT COUNCIL</h3>
+                    <p class="text-accent-600 text-xs font-bold uppercase tracking-wide mb-4">Member</p>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Advocating for Electrical & Computer Engineering students, organizing academic workshops, and bridging faculty-student communication.
+                    </p>
+                </div>
+
+                <!-- Activity 3: The Stute -->
+                <div class="bg-slate-50 p-8 border-t-4 border-slate-800 shadow-sm hover:shadow-md transition rounded-xl">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Contributor</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-1">THE STUTE</h3>
+                    <p class="text-slate-600 text-xs font-bold uppercase tracking-wide mb-4">Photographer</p>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Capturing campus life, major events, and student culture for the university's official student-run newspaper.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Section (Light Mode) -->
+    <section id="media" class="py-24 bg-slate-50 relative overflow-hidden">
+        <!-- Decoration -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-primary-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 translate-x-1/2 -translate-y-1/2"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+                <div>
+                    <h2 class="text-4xl font-display font-black text-slate-900">DIGITAL PRODUCTION</h2>
+                    <p class="text-slate-500 mt-2 text-lg font-medium">Managing content and communities at scale.</p>
+                </div>
+            </div>
+
+            <!-- Featured: Math Analyzers -->
+            <div class="bg-white border border-slate-200 p-10 rounded-2xl mb-12 shadow-xl hover:shadow-2xl transition">
+                <div class="flex flex-col md:flex-row gap-8 items-start">
+                    <div class="flex-grow">
+                        <div class="flex items-center gap-3 mb-2">
+                            <h3 class="text-2xl font-bold uppercase tracking-wide text-slate-900">High School Math Analyzers</h3>
+                            <span class="px-3 py-1 bg-primary-600 text-white text-[10px] font-bold uppercase tracking-widest rounded-full">Featured</span>
+                        </div>
+                        <p class="text-slate-500 text-xs font-bold uppercase tracking-widest mb-6">2020 - 2023</p>
+                        
+                        <div class="grid md:grid-cols-2 gap-8 mb-6">
+                            <div>
+                                <p class="font-bold text-slate-800 text-sm uppercase tracking-wide border-b border-slate-100 pb-2 mb-2">Role: Founder & President</p>
+                                <p class="text-slate-600 text-sm leading-relaxed">Led a remote team of 10 creators. Scaled channel to 300 subscribers and 45,000+ views.</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-slate-800 text-sm uppercase tracking-wide border-b border-slate-100 pb-2 mb-2">Impact</p>
+                                <p class="text-slate-600 text-sm leading-relaxed">Managed project timelines, delegated digital asset creation, and ensuring content quality.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0 bg-red-50 p-6 rounded-xl border border-red-100 text-red-600 shadow-inner">
+                        <i class="fab fa-youtube text-6xl"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Media Details Grid -->
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Baruch Ultimate -->
+                <div class="bg-white border border-slate-200 p-8 rounded-xl shadow-sm hover:shadow-lg transition group">
+                    <div class="flex justify-between items-start mb-6">
+                        <h3 class="text-lg font-bold text-slate-900 uppercase tracking-wide group-hover:text-primary-700 transition">Baruch Ultimate Frisbee</h3>
+                        <a href="https://sites.google.com/view/baruchultimate/home" target="_blank" class="text-primary-600 hover:text-primary-800 text-xs font-bold uppercase tracking-wider"><i class="fas fa-external-link-alt mr-1"></i> Website</a>
+                    </div>
+                    
+                    <div class="space-y-4 mb-6">
+                        <div class="flex justify-between border-b border-slate-100 pb-2">
+                            <span class="text-slate-500 text-xs font-bold uppercase tracking-wide">2024-Present</span>
+                            <span class="text-slate-800 font-bold text-sm">Coach & Advisor</span>
+                        </div>
+                        <div class="flex justify-between border-b border-slate-100 pb-2">
+                            <span class="text-slate-500 text-xs font-bold uppercase tracking-wide">2023</span>
+                            <span class="text-slate-800 font-bold text-sm">Captain & President</span>
+                        </div>
+                        <div class="flex justify-between pb-2">
+                            <span class="text-slate-500 text-xs font-bold uppercase tracking-wide">2022</span>
+                            <span class="text-slate-800 font-bold text-sm">Founder & Athletic Director</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-100">
+                         <div class="grid grid-cols-2 gap-4">
+                             <div>
+                                 <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">YouTube</p>
+                                 <p class="text-sm font-bold text-slate-900">2.3K Views</p>
+                                 <p class="text-xs text-slate-500">20 Subscribers</p>
+                             </div>
+                             <div>
+                                 <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Instagram</p>
+                                 <p class="text-sm font-bold text-slate-900">37K Views</p>
+                                 <p class="text-xs text-slate-500">240 Followers</p>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+
+                <!-- BCCHS & Lorax -->
+                <div class="bg-white border border-slate-200 p-8 rounded-xl shadow-sm hover:shadow-lg transition">
+                    <div class="space-y-8">
+                        <!-- BCCHS -->
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <h3 class="text-lg font-bold text-slate-900 uppercase tracking-wide">BCCHS Media</h3>
+                                <div class="text-right">
+                                    <a href="https://www.youtube.com/@bcchsnyc" target="_blank" class="text-xs font-bold text-primary-600 hover:underline transition"><i class="fab fa-youtube mr-1"></i> 134K Views</a>
+                                    <p class="text-[10px] text-slate-500 uppercase font-bold">40 Videos • 300 Subs</p>
+                                </div>
+                            </div>
+                            <div class="space-y-1 text-sm">
+                                <div class="flex justify-between border-b border-slate-100 pb-1 mb-1"><span class="text-slate-500 text-xs font-bold uppercase tracking-wide">2022-2023</span> <span class="font-bold text-slate-800">President</span></div>
+                                <div class="flex justify-between"><span class="text-slate-500 text-xs font-bold uppercase tracking-wide">2020-2022</span> <span class="font-bold text-slate-800">Member</span></div>
+                            </div>
+                        </div>
+
+                        <div class="w-full h-px bg-slate-200"></div>
+
+                        <!-- Lorax -->
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <h3 class="text-lg font-bold text-slate-900 uppercase tracking-wide">Lorax Club</h3>
+                                <div class="text-right">
+                                    <a href="https://www.instagram.com/bcchs.lorax/" target="_blank" class="text-xs font-bold text-accent-600 hover:underline transition"><i class="fab fa-instagram mr-1"></i> 125 Followers</a>
+                                    <p class="text-[10px] text-slate-500 uppercase font-bold">50 Posts</p>
+                                </div>
+                            </div>
+                            <div class="space-y-1 text-sm">
+                                <div class="flex justify-between border-b border-slate-100 pb-1 mb-1"><span class="text-slate-500 text-xs font-bold uppercase tracking-wide">2022-2023</span> <span class="font-bold text-slate-800">Vice President</span></div>
+                                <div class="flex justify-between"><span class="text-slate-500 text-xs font-bold uppercase tracking-wide">2020-2022</span> <span class="font-bold text-slate-800">Social Media Manager</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Life / Interests -->
+    <section id="life" class="py-24 bg-white border-t border-slate-200">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <h2 class="text-3xl font-display font-black text-slate-900 mb-12 text-center">BEYOND THE TERMINAL</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Item 1 -->
+                <div class="bg-white p-8 text-center border border-slate-200 hover:border-primary-500 transition duration-300 rounded-xl shadow-sm group">
+                    <i class="fas fa-running text-4xl text-slate-300 group-hover:text-primary-600 mb-6 transition"></i>
+                    <h3 class="font-bold text-lg text-slate-900 uppercase tracking-wide mb-2">Ultimate Frisbee</h3>
+                    <p class="text-sm text-slate-500">Active competitive player.</p>
+                </div>
+                <!-- Item 2 -->
+                <div class="bg-white p-8 text-center border border-slate-200 hover:border-accent-500 transition duration-300 rounded-xl shadow-sm group">
+                    <i class="fas fa-basketball-ball text-4xl text-slate-300 group-hover:text-accent-500 mb-6 transition"></i>
+                    <h3 class="font-bold text-lg text-slate-900 uppercase tracking-wide mb-2">NY Knicks</h3>
+                    <p class="text-sm text-slate-500">NYC Basketball enthusiast.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-slate-900 text-white">
+        <div class="container mx-auto px-6 max-w-4xl text-center">
+            <h2 class="text-4xl font-display font-black mb-6">INITIATE CONNECTION</h2>
+            <p class="text-slate-400 mb-10 text-lg">
+                Available for internships, freelance projects, or tech consultation in the NYC Tri-State area.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-6">
+                <a href="mailto:jersonyang2@gmail.com" class="px-8 py-4 bg-white text-slate-900 font-bold rounded-lg hover:bg-slate-200 transition shadow-lg">
+                    <i class="fas fa-envelope mr-2"></i> jersonyang2@gmail.com
+                </a>
+                <a href="https://linkedin.com/in/jersonyang" target="_blank" class="px-8 py-4 bg-transparent border border-white text-white font-bold rounded-lg hover:bg-white/10 transition">
+                    <i class="fab fa-linkedin mr-2"></i> LinkedIn
+                </a>
+                <a href="https://github.com/jersonyang" target="_blank" class="px-8 py-4 bg-transparent border border-white text-white font-bold rounded-lg hover:bg-white/10 transition">
+                    <i class="fab fa-github mr-2"></i> GitHub
+                </a>
+            </div>
+            <p class="mt-16 text-slate-500 text-sm">
+                &copy; 2026 Jerson Yang. Engineered in NYC.
+            </p>
+        </div>
+    </section>
+
+    <!-- Script for mobile menu -->
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
