@@ -89,10 +89,15 @@
     <nav class="fixed w-full bg-white/95 backdrop-blur-md shadow-sm z-50 border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0 flex items-center gap-3">
+                //added a way for JY to link back to home page
+                <a href="#home" class="flex-shrink-0 flex items-center gap-3 group">
+                    <div class="w-10 h-10 bg-primary-700 rounded-lg flex items-center justify-center text-white font-display font-black text-xl shadow-lg shadow-primary-500/30 group-hover:bg-primary-800 transition">JY</div>
+                    <span class="font-display font-bold text-xl text-slate-900 tracking-tight">JERSON <span class="text-primary-600">YANG</span></span>
+                </a>
+                <!-- <div class="flex-shrink-0 flex items-center gap-3">
                     <div class="w-10 h-10 bg-primary-700 rounded-lg flex items-center justify-center text-white font-display font-black text-xl shadow-lg shadow-primary-500/30">JY</div>
                     <span class="font-display font-bold text-xl text-slate-900 tracking-tight">JERSON <span class="text-primary-600">YANG</span></span>
-                </div>
+                </div> -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
                         <a href="#home" class="text-slate-600 hover:text-primary-700 px-3 py-2 text-sm font-bold uppercase tracking-wide transition">Home</a>
@@ -259,7 +264,7 @@
                     </ul>
                 </div>
 
-                <!-- Job 2 -->
+                <!-- Job 2: Operations Interns -->
                 <div class="bg-white p-8 rounded-xl border border-slate-100 shadow-sm hover:shadow-lg transition border-l-4 border-l-slate-400 group">
                     <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
                         <div>
@@ -461,7 +466,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-100">
+                    <!-- <div class="bg-slate-50 p-4 rounded-lg border border-slate-100">
                          <div class="grid grid-cols-2 gap-4">
                              <div>
                                  <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">YouTube</p>
@@ -474,7 +479,28 @@
                                  <p class="text-xs text-slate-500">240 Followers</p>
                              </div>
                          </div>
-                    </div>
+                    </div> -->
+
+                    //Added way for YouTube & Instagram to be linked
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-100">
+                         <div class="grid grid-cols-2 gap-4">
+                             <div>
+                                 <a href="https://www.youtube.com/@baruchultimate" target="_blank" class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1 hover:text-red-600 transition">
+                                    <i class="fab fa-youtube mr-1"></i> YouTube
+                                 </a>
+                                 <p class="text-sm font-bold text-slate-900">2.3K Views</p>
+                                 <p class="text-xs text-slate-500">20 Subscribers</p>
+                             </div>
+                             <div>
+                                 <a href="https://www.instagram.com/baruchultimate" target="_blank" class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1 hover:text-pink-600 transition">
+                                    <i class="fab fa-instagram mr-1"></i> Instagram
+                                 </a>
+                                 <p class="text-sm font-bold text-slate-900">37K Views</p>
+                                 <p class="text-xs text-slate-500">240 Followers</p>
+                             </div>
+                         </div>
+                    </div>                
+                
                 </div>
 
                 <!-- BCCHS & Lorax -->
